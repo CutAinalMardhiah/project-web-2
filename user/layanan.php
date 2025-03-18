@@ -18,7 +18,7 @@
         <a href="booking.php">Booking</a>
         <a href="akun.php">Akun</a>
     </nav>
-    <button class="login-button" onclick="window.location.href='login.html'">
+    <button class="login-button" onclick="window.location.href='index.php'">
       Login
     </button>
     <div class="center-content">
