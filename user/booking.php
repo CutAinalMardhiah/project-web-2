@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["user"])) {
+    header("Location: login.php"); // Redirect ke login jika belum login
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,13 +19,22 @@
       <img src="./image/logooo.png" alt="Pet Banner" class="banner-image" />
     </div>
     <nav>
-        <a href="dashboard.php">Beranda</a>
+        <a href="index.php">Beranda</a>
         <a href="layanan.php">Layanan</a>
         <a href="booking.php">Booking</a>
         <a href="akun.php">Akun</a>
     </nav>
-    <button class="login-button" onclick="window.location.href='index.php'">
-      Login
+    <button class="login-button"><a href="logout.php">Logout</a>
+    </button>
+
+<script>
+  function logout() {
+    localStorage.removeItem("user");
+    alert("Logged out successfully!");
+    window.location.href = "index.php";
+  }
+</script>
+
     </button>
 <div class="container-booking">
     <h3>Pilih Bulan</h3>

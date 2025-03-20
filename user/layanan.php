@@ -13,12 +13,12 @@
       <img src="./image/logooo.png" alt="Pet Banner" class="banner-image" />
     </div>
     <nav>
-        <a href="dashboard.php">Beranda</a>
+        <a href="index.php">Beranda</a>
         <a href="layanan.php">Layanan</a>
         <a href="booking.php">Booking</a>
         <a href="akun.php">Akun</a>
     </nav>
-    <button class="login-button" onclick="window.location.href='index.php'">
+    <button class="login-button" onclick="window.location.href='login.php'">
       Login
     </button>
     <div class="center-content">
@@ -29,7 +29,7 @@
             <img src="./image/grooming.png" alt="Grooming">
             <h5>Grooming</h5>
             <p>Mulai dari 60.000</p>
-            <button class="booking-button" onclick="window.location.href='booking.php'">Booking Now</button>
+            <a href="booking.php" class="booking-button">Book Now</a>
       </div>
       <div class="card">
             <img src="./image/penitipan.png" alt="Penitipan">

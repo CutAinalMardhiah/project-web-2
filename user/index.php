@@ -1,186 +1,84 @@
+<?php
+// Simulasi data layanan yang sudah dipesan sebelumnya
+$orders = [
+    [
+        'title' => 'Grooming - Paket Basic',
+        'date' => 'Selasa, 6 Feb 2025',
+        'time' => '14:00 - 15:00',
+        'status' => 'Diterima',
+        'price' => 'Rp 60.000',
+        'code' => 'Q2R5',
+        'pet' => 'Milo - Kucing Persia'
+    ]
+];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login & Register</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
-    <!-- Custom CSS -->
-    <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        background-image: url(logoo.jpeg);
-        background-size: 150px;
-      }
-      .auth-container {
-        max-width: 400px;
-        width: 100%;
-        padding: 30px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        background-color: #c86cc8;
-      }
-      .form-toggle {
-        cursor: pointer;
-        color: #7d24a0;
-      }
-      .form-toggle:hover {
-        text-decoration: underline;
-      }
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Paws</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
-      .login-image {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        display: block;
-        margin: 0 auto 0;
-      }
-
-      h2 {
-        font-family: "Times New Roman", Times, serif;
-        font-size: 20px;
-      }
-
-      h3 {
-        font-family: "Times New Roman", Times, serif;
-        font-size: 15px;
-      }
-      /* Custom button styles */
-      .btn-purple {
-        background-color: white; /* Warna ungu */
-        border-color: white;
-        color: rgb(15, 15, 15);
-      }
-      .btn-purple:hover {
-        background-color: #8206b3; /* Warna ungu lebih gelap saat hover */
-        border-color: #8206b3;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Login Form -->
-    <div class="auth-container" id="loginForm">
-      <img src="./image/logooo.png" alt="Login Image" class="login-image" />
-      <h2 class="text-center mb-4">Woof woof!</h2>
-      <h3 class="text-center mb-4">
-        Woof woof! Welcome to Happy Paws, your pets ultimate happy place!!
-      </h3>
-      <form onsubmit="handleLogin(event)">
-        <div class="mb-3">
-          <label for="loginEmail" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="loginEmail"
-            placeholder="Enter email"
-            required />
+</head>
+<body>
+    <div class="banner-container">
+      <img src="./image/logooo.png" alt="Pet Banner" class="banner-image" />
+    </div>
+    <nav>
+        <a href="index.php">Beranda</a>
+        <a href="layanan.php">Layanan</a>
+        <a href="booking.php">Booking</a>
+        <a href="akun.php">Akun</a>
+    </nav>
+    <button class="login-button" onclick="window.location.href='login.php'">
+      Login
+    </button>
+    <div class="container">
+      <h3>Welcome to Happy Paws</h3>
+      <p>Setiap hewan memiliki kebutuhan unik, itulah mengapa Happy Paws hadir 
+        untuk memberikan pengalaman perawatan yang menyenangkan dan bebas stres bagi hewan kesayangan Anda.</p>
+      </div>
+    <div class="center-content">
+      <a href="layanan.php" class="section-title">Layanan</a>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <a href="layanan.php">
+            <img src="./image/grooming.png" alt="Grooming">
+            <h5>Grooming</h5>
         </div>
-        <div class="mb-3">
-          <label for="loginPassword" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="loginPassword"
-            placeholder="Password"
-            required />
+        <div class="card">
+            <a href="layanan.php">
+            <img src="./image/penitipan.png" alt="Penitipan">
+            <h5>Penitipan</h5>
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="rememberMe" />
-          <label class="form-check-label" for="rememberMe">Remember me</label>
+        <div class="card">
+            <a href="layanan.php">
+            <img src="./image/antar.png" alt="Antar Jemput">
+            <h5>Antar Jemput</h5>
         </div>
-        <button type="submit" class="btn btn-purple w-100">Login</button>
-        <p class="text-center mt-3">
-          Don't have an account?
-          <span class="form-toggle" onclick="toggleForm()">Register here</span>
-        </p>
-      </form>
     </div>
 
-    <!-- Register Form -->
-    <div class="auth-container" id="registerForm" style="display: none">
-      <h2 class="text-center mb-4">Register</h2>
-      <form onsubmit="handleRegister(event)">
-        <div class="mb-3">
-          <label for="registerUsername" class="form-label">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="registerUsername"
-            placeholder="Enter username"
-            required />
-        </div>
-        <div class="mb-3">
-          <label for="registerEmail" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="registerEmail"
-            placeholder="Enter email"
-            required />
-        </div>
-        <div class="mb-3">
-          <label for="registerPassword" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="registerPassword"
-            placeholder="Password"
-            required />
-        </div>
-        <div class="mb-3">
-          <label for="confirmPassword" class="form-label"
-            >Confirm Password</label
-          >
-          <input
-            type="password"
-            class="form-control"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            required />
-        </div>
-        <button type="submit" class="btn btn-purple w-100">Register</button>
-        <p class="text-center mt-3">
-          Already have an account?
-          <span class="form-toggle" onclick="toggleForm()">Login here</span>
-        </p>
-      </form>
+    <button class="btn-order" onclick="window.location.href='layanan.php'">Pesan Sekarang</button>
+
+    <div class="container-pesanan">
+        <?php foreach ($orders as $order) : ?>
+            <div class="order-box">
+                <h3><?= $order['title']; ?></h3>
+                <p><?= $order['date']; ?> | <?= $order['time']; ?></p>
+                <p>Status: <?= $order['status']; ?></p>
+                <p><strong><?= $order['price']; ?></strong> - <?= $order['code']; ?></p>
+                <p><?= $order['pet']; ?></p>
+                <button class="btn-order" onclick="window.location.href='layanan.php'">Pesan Ulang</button>
+            </div>
+        <?php endforeach; ?>
     </div>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <!-- Custom JavaScript -->
-    <script>
-      function handleLogin(event) {
-        event.preventDefault();
-        window.location.href = "dashboard.html";
-      }
-
-      function handleRegister(event) {
-        event.preventDefault();
-        alert("Registration successful! Redirecting to login.");
-        toggleForm();
-      }
-
-      function toggleForm() {
-        const loginForm = document.getElementById("loginForm");
-        const registerForm = document.getElementById("registerForm");
-
-        if (loginForm.style.display === "none") {
-          loginForm.style.display = "block";
-          registerForm.style.display = "none";
-        } else {
-          loginForm.style.display = "none";
-          registerForm.style.display = "block";
-        }
-      }
-    </script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>
+      <p>&copy; 2025 HappyPaws Indo. All Rights Reserved.</p>
+    </footer>
+</body>
 </html>
