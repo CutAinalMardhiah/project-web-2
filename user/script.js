@@ -14,24 +14,27 @@ function handleLogin(event) {
   let username = document.getElementById("loginUsername").value;
   let password = document.getElementById("loginPassword").value;
 
+  console.log("Username:", username); // Debugging
+  console.log("Password:", password); // Debugging
+
   if (username === "" || password === "") {
-    alert("Username dan password harus diisi!");
-    return;
+      alert("Username dan password harus diisi!");
+      return;
   }
 
   fetch("login.php", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `username=${username}&password=${password}`,
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `username=${username}&password=${password}`,
   })
-    .then((response) => response.json())
-    .then((data) => {
+  .then((response) => response.json())
+  .then((data) => {
       alert(data.message);
       if (data.status === "success") {
-        window.location.href = "booking.php";
+          window.location.href = "booking.php";
       }
-    })
-    .catch((error) => console.error("Error:", error));
+  })
+  .catch((error) => console.error("Error:", error));
 }
 
 function handleRegister(event) {
